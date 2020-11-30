@@ -1,2 +1,3 @@
-# bilibili_source
-b站发布视频的源码
+# bulv在b站发布视频的源码
+
+可以随意取用鸭~
