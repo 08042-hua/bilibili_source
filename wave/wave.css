@@ -1,0 +1,77 @@
+.g-position {
+    position: absolute;
+    width: 80vmin;
+    height: 80vmin;
+}
+.g-center {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.wave {
+    position: absolute;
+    top: calc((100% - 40vmin)/2);
+    left: calc((100% - 40vmin)/2);
+    width: 40vmin;
+    height: 40vmin;
+    border-radius: 50%;
+    background-image: url("1.jpg");
+    background-attachment: fixed;
+    background-position: center center;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    opacity: 0;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+}
+.g-wave1 {
+    background-size: auto 106%;
+    -webkit-animation: wave 1s ease-out 0.1s;
+    animation: wave 1s ease-out 0.1s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    z-index: 10;
+}
+.g-wave2 {
+    background-size: auto 102%;
+    -webkit-animation: wave 1s ease-out 0.15s;
+    animation: wave 1s ease-out 0.15s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    z-index: 20;
+}
+.g-wave3 {
+    background-size: auto 104%;
+    -webkit-animation: wave 1s ease-out 0.25s;
+    animation: wave 1s ease-out 0.25s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    z-index: 30;
+}
+.g-wave4 {
+    background-size: auto 100%;
+    -webkit-animation: wave 1s ease-out 0.4s;
+    animation: wave 1s ease-out 0.4s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    z-index: 40;
+}
+@-webkit-keyframes wave {
+    0% {
+        top: calc((100% - 40vmin)/2);
+        left: calc((100% - 40vmin)/2);
+        width: 40vmin;
+        height: 40vmin;
+        opacity: 1;
+    }
+    99% {
+        opacity: 1;
+    }
+    100% {
+        top: calc((100% - 60vmin)/2);
+        left: calc((100% - 60vmin)/2);
+        width: 60vmin;
+        height: 60vmin;
+        opacity: 0;
+    }
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="wave.css" type="text/css" rel="stylesheet"/>
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #container{
+            height: 100vh;
+            width: 100vw;
+            position: relative;
+            top: 0;
+            left: 0;
+            background-image: url('1.jpg');
+            overflow: hidden;
+            background-size: auto;
+            background-position: center;
+            background-attachment: cover;
+            background-repeat: no-repeat;
+            max-width: 100%;
+            user-select: none;
+            cursor: default;
+        }
+    </style>
+</head>
+<body>
+    <div class="g-container"></div>
+    <div id="container"></div>
+</body>
+<!-- <script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-9bf952ccbbd13c245169a0a1190323a27ce073a3d304b8c0fdf421ab22794a58.js"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script id="rendered-js">
+        (function () {
+            let x, y;
+            let index = 0;
+            let screenSizeWidth = $('body').width();
+            let screenSizeHeight = $('body').height();
+            let halfvmin = (screenSizeWidth > screenSizeHeight ? screenSizeHeight / 2 : screenSizeWidth / 2) * 0.8;
+            console.log('halfvmin', halfvmin);
+            $(document).on("click", function (e) {
+                x = e.pageX;
+                y = e.pageY;
+                waveMove(x, y, index++);
+            });
+            function waveMove(x, y, z) {
+                $(".g-container").append(`
+                        <div class="g-position g-position${z}" style="top:${y - halfvmin}px; left:${x - halfvmin}px; z-index:${z}">
+                            <div class="g-center">
+                                <div class="wave g-wave1"></div>
+                                <div class="wave g-wave2"></div>
+                                <div class="wave g-wave3"></div>
+                                <div class="wave g-wave4"></div>
+                            </div>
+                        </div>
+                    `);
+                setTimeout(function () {
+                $(`.g-position${z}`).remove();
+                }, 3000);
+            }
+            })();
+            </script>
+        <!-- <script src="https://static.codepen.io/assets/editor/iframe/iframeRefreshCSS-8a264da60d1f38eaa58c8243fe0ad6a782e98673c75eb542ccf03bc0efbfe2de.js"></script> -->
+</html>
